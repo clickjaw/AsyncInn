@@ -25,6 +25,7 @@ h1 {
     padding: 20px;
     width: auto;
     border-radius: 15px;
+    border: 2px white solid;
 }
 
 p {
