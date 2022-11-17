@@ -15,12 +15,13 @@ html {
 
 body {
     margin-bottom: 60px;
-    background: url("https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/EJsJFv-/videoblocks-animation-of-wire-frame-model-of-city-3d-rendering_hlm2bsdjbu_thumbnail-1080_01.png");
-    background-size: cover;
+    /*    background: url("https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/EJsJFv-/videoblocks-animation-of-wire-frame-model-of-city-3d-rendering_hlm2bsdjbu_thumbnail-1080_01.png");
+    background-size: cover;*/
+    background-color: #89DEFB;
 }
 
 h1 {
-    background-color: black;
+    background-color: #384E77;
     color: white;
     padding: 20px;
     width: auto;
@@ -28,9 +29,29 @@ h1 {
     border: 2px white solid;
 }
 
+.createButton {
+text-decoration: none;
+color: white;
+}
+    .createButton:hover {
+        text-decoration: underline;
+        color: white;
+    }
+
 p {
-    background-color: black;
+    background-color: #384E77;
     color: white;
-    padding: 5px;
+    padding: 10px;
+    text-align: center;
     border-radius: 15px;
+}
+
+header {
+background-color: black;
+}
+
+table {
+background-color: white;
+/*color: white;
+*/
 }
