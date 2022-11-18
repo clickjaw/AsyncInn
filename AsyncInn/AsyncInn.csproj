@@ -26,9 +26,13 @@
     <None Remove="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
     <None Remove="Microsoft.EntityFrameworkCore.Sqlite" />
     <None Remove="Controllers\" />
+    <None Remove="Models\Interfaces\" />
+    <None Remove="Models\Services\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Controllers\" />
+    <Folder Include="Models\Interfaces\" />
+    <Folder Include="Models\Services\" />
   </ItemGroup>
 </Project>

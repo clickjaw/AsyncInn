@@ -13,10 +13,16 @@ html {
   min-height: 100%;
 }
 
+/*body {
+    margin-bottom: 60px;
+    background: url("https://roadtrippers.com/wp-content/uploads/2019/10/shutterstock_330709256.jpg");
+    background-size: cover;
+    background-color: #89DEFB;
+}*/
 body {
     margin-bottom: 60px;
-    /*    background: url("https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/EJsJFv-/videoblocks-animation-of-wire-frame-model-of-city-3d-rendering_hlm2bsdjbu_thumbnail-1080_01.png");
-    background-size: cover;*/
+    background: url("https://static01.nyt.com/images/2021/04/27/dining/27willows11/merlin_185723031_c8d01f01-a91a-4395-8c52-5e26e39343ec-mobileMasterAt3x.jpg");
+    background-size: cover;
     background-color: #89DEFB;
 }
 
@@ -38,6 +44,16 @@ color: white;
         color: white;
     }
 
+.privacyButton {
+    text-decoration: none;
+    color: #384E77;
+}
+
+    .privacyButton:hover {
+        text-decoration: underline;
+        color: #384E77;
+    }
+
 p {
     background-color: #384E77;
     color: white;
@@ -46,12 +62,18 @@ p {
     border-radius: 15px;
 }
 
-header {
-background-color: black;
-}
+
 
 table {
 background-color: white;
-/*color: white;
-*/
+}
+
+footer {
+    background-color: white;
+    color: #384E77;
+}
+
+header{
+    background-color: #384E77;
+    color: white;
 }

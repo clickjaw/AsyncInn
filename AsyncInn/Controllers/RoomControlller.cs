@@ -7,36 +7,34 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AsyncInn.Data;
 using AsyncInn.Models;
+using AsyncInn.Models.Interfaces;
 
 namespace AsyncInn.Controllers
 {
     public class RoomControlller : Controller
     {
-        private readonly TestDbContext _context;
+        private readonly IRoom _room;
 
-        public RoomControlller(TestDbContext context)
+        public RoomControlller(IRoom r)
         {
-            _context = context;
+            _room = r;
         }
 
         // GET: RoomControlller
         public async Task<IActionResult> Index()
         {
-              return _context.Rooms != null ? 
-                          View(await _context.Rooms.ToListAsync()) :
-                          Problem("Entity set 'TestDbContext.Rooms'  is null.");
+            return View(await _room.GetRooms());
         }
 
         // GET: RoomControlller/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Rooms == null)
+            if (id == null || _room.GetRooms() == null)
             {
                 return NotFound();
             }
 
-            var room = await _context.Rooms
-                .FirstOrDefaultAsync(m => m.ID == id);
+            var room = await _room.GetRoom(id);
             if (room == null)
             {
                 return NotFound();
@@ -60,8 +58,7 @@ namespace AsyncInn.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(room);
-                await _context.SaveChangesAsync();
+                await _room.Create(room);
                 return RedirectToAction(nameof(Index));
             }
             return View(room);
@@ -70,12 +67,12 @@ namespace AsyncInn.Controllers
         // GET: RoomControlller/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Rooms == null)
+            if (id == null || _room.GetRooms() == null)
             {
                 return NotFound();
             }
 
-            var room = await _context.Rooms.FindAsync(id);
+            var room = await _room.Find(id);
             if (room == null)
             {
                 return NotFound();
@@ -99,8 +96,7 @@ namespace AsyncInn.Controllers
             {
                 try
                 {
-                    _context.Update(room);
-                    await _context.SaveChangesAsync();
+                    await _room.UpdateRoom(room);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -121,13 +117,12 @@ namespace AsyncInn.Controllers
         // GET: RoomControlller/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Rooms == null)
+            if (id == null || _room.GetRooms() == null)
             {
                 return NotFound();
             }
 
-            var room = await _context.Rooms
-                .FirstOrDefaultAsync(m => m.ID == id);
+            var room = await _room.GetRoom(id);
             if (room == null)
             {
                 return NotFound();
@@ -141,23 +136,24 @@ namespace AsyncInn.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Rooms == null)
+            if (_room.GetRooms == null)
             {
                 return Problem("Entity set 'TestDbContext.Rooms'  is null.");
             }
-            var room = await _context.Rooms.FindAsync(id);
-            if (room != null)
+            var room = await _room.Find(id);
+
+            if(room != null)
             {
-                _context.Rooms.Remove(room);
+                await _room.Delete(room);
             }
             
-            await _context.SaveChangesAsync();
+            await _room.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
 
         private bool RoomExists(int id)
         {
-          return (_context.Rooms?.Any(e => e.ID == id)).GetValueOrDefault();
+            return _room.Exists(id);
         }
     }
 }

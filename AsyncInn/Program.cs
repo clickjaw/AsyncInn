@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using AsyncInn.Models;
+using AsyncInn.Models.Interfaces;
+using AsyncInn.Models.Services;
 using AsyncInn.Data;
 
 
@@ -9,11 +11,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<IHotel, HotelService>();
+builder.Services.AddTransient<IAmenity, AmenityService>();
+builder.Services.AddTransient<IRoom, RoomService>();
 
 builder.Services.AddDbContext<TestDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("AzureContext")));
 
 var app = builder.Build();
+
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
