@@ -3,63 +3,87 @@
 @{
     ViewData["Title"] = "Hotels";
 }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
 
-<h1>Index</h1>
+<h1>Our Family</h1>
+
+<div class="homePageDiv">
+    <div class="homePageMenu">
+
+        <a class="homePageListItem" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    </div>
+
+    <div class="homePageMenu">
+        <a class="homePageListItem" asp-area="" asp-controller="Hotel" asp-action="">Hotels</a>
+    </div>
+    <div class="homePageMenu">
+        <a class="homePageListItem" asp-area="" asp-controller="RoomControlller" asp-action="">Room</a>
+    </div>
+    <div class="homePageMenu">
+        <a class="homePageListItem" asp-area="" asp-controller="Amenities" asp-action="">Amenities</a>
+    </div>
+
+</div>
 
 <p>
-    <a asp-action="Create" class = "createButton">Create New</a>
+    <a asp-action="Create" class="createButton">Create New</a>
 </p>
-<table class="table">
+<div class="hotelTable">
+<table>
     <thead>
-        <tr>
-            <th>
+        <tr class="trHotel">
+            <th class="trHotel">
                 @Html.DisplayNameFor(model => model.Name)
             </th>
-            <th>
+            <th class="trHotel">
                 @Html.DisplayNameFor(model => model.StreetAddress)
             </th>
-            <th>
+            <th class="trHotel">
                 @Html.DisplayNameFor(model => model.City)
             </th>
-            <th>
+            <th class="trHotel">
                 @Html.DisplayNameFor(model => model.State)
             </th>
-            <th>
+            <th class="trHotel">
                 @Html.DisplayNameFor(model => model.Country)
             </th>
-            <th>
+            <th class="trHotel">
                 @Html.DisplayNameFor(model => model.Phone)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StreetAddress)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.City)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Country)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StreetAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.State)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    <a class = "createButtonHotel" asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a class = "createButtonHotel" asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a class = "createButtonHotel" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+</div>

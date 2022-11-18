@@ -9,30 +9,32 @@
 }
 
 html {
-  position: relative;
+/*  position: relative;
+*/
+
   min-height: 100%;
 }
 
-/*body {
-    margin-bottom: 60px;
-    background: url("https://roadtrippers.com/wp-content/uploads/2019/10/shutterstock_330709256.jpg");
-    background-size: cover;
-    background-color: #89DEFB;
-}*/
 body {
     margin-bottom: 60px;
     background: url("https://static01.nyt.com/images/2021/04/27/dining/27willows11/merlin_185723031_c8d01f01-a91a-4395-8c52-5e26e39343ec-mobileMasterAt3x.jpg");
     background-size: cover;
     background-color: #89DEFB;
+    margin-top: 30px;
+    
 }
 
 h1 {
-    background-color: #384E77;
+    background-color: #603E48;
     color: white;
     padding: 20px;
     width: auto;
     border-radius: 15px;
-    border: 2px white solid;
+    font-family: 'Abril Fatface', cursive;
+    font-size:56px;
+    text-align: center;
+    border: 6px white solid;
+    z-index: 4;
 }
 
 .createButton {
@@ -40,6 +42,20 @@ text-decoration: none;
 color: white;
 }
     .createButton:hover {
+        text-decoration: underline;
+        color: white;
+    }
+
+
+.createButtonHotel {
+    text-decoration: none;
+    color: white;
+    text-align: right;
+    width:auto;
+    margin: 10px;
+}
+
+    .createButtonHotel:hover {
         text-decoration: underline;
         color: white;
     }
@@ -55,17 +71,39 @@ color: white;
     }
 
 p {
-    background-color: #384E77;
+    margin: auto;
+    background-color: #2274A5;
     color: white;
     padding: 10px;
     text-align: center;
     border-radius: 15px;
+    width: 50%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    
+}
+
+.footerBullshit {
+background:none;
+color: white;
+text-align: right;
+padding-right: 20px;
 }
 
 
+.hotelTable {
+    background-color: #603E48;
+    color: white;
+    width: 100%;
+    padding: 50px;
+    border-radius: 15px;
+    border: 2px white solid;
+    text-align: center;
+}
 
-table {
-background-color: white;
+.trHotel {
+padding: 30px;
+text-align: center;
 }
 
 footer {
@@ -77,3 +115,38 @@ header{
     background-color: #384E77;
     color: white;
 }
+
+.homePageDiv {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    background-color: #603E48;
+    width: 75%;
+    margin-top: -20px;
+    border-radius: 15px;
+    border: 2px white solid;
+    z-index: -2;
+}
+
+.homePageMenu {
+    margin: auto;
+    width: fit-content;
+    background-color: #603E48;
+    color: white;
+    padding: 15px;
+    border-radius:15px;
+    font-size: 24px;
+    text-align: left;
+    z-index: 0;
+}
+
+.homePageListItem {
+    text-decoration: none;
+    color: white;
+    z-index: 2;
+
+}
+    .homePageListItem:hover {
+        text-decoration: underline;
+        color: white;
+    }

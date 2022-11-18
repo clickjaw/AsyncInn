@@ -2,8 +2,32 @@
     ViewData["Title"] = "Home Page";
 }
 
+<link rel="preconnect" href="https://fonts.googleapis.com" >
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet" >
+
 <div class="text-center">
-    <h1 class="display-4">Welcome To Async Inn</h1>
-    <p>We are currently building a better experience for you.</p>
+    <h1 class="display-4">Async Inn</h1>
+    
 </div>
 
+<div class="homePageDiv">
+    <div class="homePageMenu">
+
+        <a class="homePageListItem" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+        </div>
+
+        <div class="homePageMenu">
+            <a class="homePageListItem" asp-area="" asp-controller="Hotel" asp-action="">Hotels</a>
+        </div>
+        <div class="homePageMenu">
+            <a class="homePageListItem" asp-area="" asp-controller="RoomControlller" asp-action="">Room</a>
+        </div>
+        <div class="homePageMenu">
+            <a class="homePageListItem" asp-area="" asp-controller="Amenities" asp-action="">Amenities</a>
+        </div>
+
+    </div>
+
+
+    <p>We are currently building a better experience for you.</p>
